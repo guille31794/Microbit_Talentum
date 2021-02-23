@@ -1,4 +1,5 @@
 input.onButtonPressed(Button.A, function () {
+    Initial_Loop = 0
     music.playTone(523, music.beat(BeatFraction.Whole))
     music.stopAllSounds()
     pins.digitalWritePin(DigitalPin.P8, 1)
@@ -20,7 +21,20 @@ input.onButtonPressed(Button.B, function () {
         basic.showArrow(ArrowNames.West)
         basic.showString("Move")
     }
+    Initial_Loop = 1
 })
+let Initial_Loop = 0
 basic.showString("Hello!")
 basic.pause(1000)
 basic.showArrow(ArrowNames.West)
+Initial_Loop = 1
+while (Initial_Loop == 1) {
+    maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn)
+    basic.pause(1000)
+    maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
+    basic.pause(1000)
+    maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
+    basic.pause(1000)
+    maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
+    basic.pause(1000)
+}
